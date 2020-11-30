@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bruno Rossi\\source\\repos\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC.csproj": {}
+    "C:\\Users\\Bruno Rossi\\Desktop\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bruno Rossi\\source\\repos\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC.csproj": {
+    "C:\\Users\\Bruno Rossi\\Desktop\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruno Rossi\\source\\repos\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC.csproj",
+        "projectUniqueName": "C:\\Users\\Bruno Rossi\\Desktop\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC.csproj",
         "projectName": "Clinica-DS+BDI+MVC",
-        "projectPath": "C:\\Users\\Bruno Rossi\\source\\repos\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC.csproj",
+        "projectPath": "C:\\Users\\Bruno Rossi\\Desktop\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC.csproj",
         "packagesPath": "C:\\Users\\Bruno Rossi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruno Rossi\\source\\repos\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC\\obj\\",
+        "outputPath": "C:\\Users\\Bruno Rossi\\Desktop\\Clinica-DS+BDI+MVC\\Clinica-DS+BDI+MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -41,6 +41,26 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

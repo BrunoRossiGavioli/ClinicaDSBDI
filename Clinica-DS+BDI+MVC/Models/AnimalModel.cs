@@ -12,17 +12,28 @@ namespace Clinica_DS_BDI_MVC.Models
     {
         [Key]
         public int Id { get; set; }
-        
+
         public string Nome { get; set; }
 
-        public string Peso { get; set; }
-
-        public string Altura { get; set; }
+        [ForeignKey("Especie")]
+        public int EspecieId { get; set; }
         
-        public string Comprimento { get; set; }
+        [Column(TypeName = "decimal(3,2)")]
+        public decimal Peso { get; set; }
+        
+        [Column(TypeName = "decimal(3,2)")]
+        public decimal Altura { get; set; }
+        
+        [Column(TypeName = "decimal(3,2)")]
+        public decimal Comprimento { get; set; }
 
         public string Pedigree { get; set; }
 
+        [ForeignKey("Proprietario")]
+        public int ProprietarioId { get; set; }
+
+        public EspecieModel Especie { get; set; }
+        public ProprietarioModel Proprietario { get; set; }
 
     }
 }

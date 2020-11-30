@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "Clinica_DS_BDI_MVCContext"
+    }
+  }
+}
