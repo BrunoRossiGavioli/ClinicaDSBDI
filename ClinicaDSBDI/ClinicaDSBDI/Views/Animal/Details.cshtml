@@ -1,0 +1,60 @@
+﻿@model Clinica_DS_BDI_MVC.Models.AnimalModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AnimalModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Proprietario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Proprietario.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Especie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Especie.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Peso) KG
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Altura)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Altura) M
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comprimento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comprimento) CM
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pedigree)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pedigree)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
