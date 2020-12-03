@@ -35,12 +35,17 @@ namespace ClinicaDSBDI.Migrations
                     b.Property<DateTime>("HoraDaConsulta")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("HospitalId")
+                        .HasColumnType("int");
+
                     b.Property<int>("VeterinarioId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AnimalId");
+
+                    b.HasIndex("HospitalId");
 
                     b.HasIndex("VeterinarioId");
 
@@ -243,6 +248,12 @@ namespace ClinicaDSBDI.Migrations
                     b.HasOne("Clinica_DS_BDI_MVC.Models.AnimalModel", "Animal")
                         .WithMany()
                         .HasForeignKey("AnimalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClinicaDSBDI.Models.HospitalModel", "Hospital")
+                        .WithMany()
+                        .HasForeignKey("HospitalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

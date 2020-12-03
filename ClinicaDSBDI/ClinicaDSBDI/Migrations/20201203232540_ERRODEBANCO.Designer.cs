@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClinicaDSBDI.Migrations
 {
     [DbContext(typeof(ClinicaDSBDIContext))]
-    [Migration("20201203231720_consultaSkyfolder")]
-    partial class consultaSkyfolder
+    [Migration("20201203232540_ERRODEBANCO")]
+    partial class ERRODEBANCO
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,12 +37,17 @@ namespace ClinicaDSBDI.Migrations
                     b.Property<DateTime>("HoraDaConsulta")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("HospitalId")
+                        .HasColumnType("int");
+
                     b.Property<int>("VeterinarioId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AnimalId");
+
+                    b.HasIndex("HospitalId");
 
                     b.HasIndex("VeterinarioId");
 
@@ -245,6 +250,12 @@ namespace ClinicaDSBDI.Migrations
                     b.HasOne("Clinica_DS_BDI_MVC.Models.AnimalModel", "Animal")
                         .WithMany()
                         .HasForeignKey("AnimalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClinicaDSBDI.Models.HospitalModel", "Hospital")
+                        .WithMany()
+                        .HasForeignKey("HospitalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

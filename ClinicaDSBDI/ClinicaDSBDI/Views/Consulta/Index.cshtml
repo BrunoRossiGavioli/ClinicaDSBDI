@@ -19,6 +19,9 @@
                 @Html.DisplayNameFor(model => model.HoraDaConsulta)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Hospital)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Veterinario)
             </th>
             <th>
@@ -35,6 +38,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HoraDaConsulta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hospital.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Veterinario.Id)

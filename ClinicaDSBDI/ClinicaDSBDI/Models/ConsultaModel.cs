@@ -14,6 +14,9 @@ namespace ClinicaDSBDI.Models
         [Key]
         public int Id { get; set; }
 
+        [ForeignKey("Hospital")]
+        public int HospitalId { get; set; }
+
         [ForeignKey("Veterinario")]
         public int VeterinarioId { get; set; }
 
@@ -23,6 +26,8 @@ namespace ClinicaDSBDI.Models
         public DateTime DataDaConsulta { get; set; }
 
         public DateTime HoraDaConsulta { get; set; }
+
+        public HospitalModel Hospital { get; set; }
 
         public VeterinarioModel Veterinario { get; set; }
 

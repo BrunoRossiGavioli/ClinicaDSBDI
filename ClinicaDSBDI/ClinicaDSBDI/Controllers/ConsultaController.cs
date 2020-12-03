@@ -22,7 +22,7 @@ namespace ClinicaDSBDI.Controllers
         // GET: Consulta
         public async Task<IActionResult> Index()
         {
-            var clinicaDSBDIContext = _context.ConsultaModel.Include(c => c.Animal).Include(c => c.Veterinario);
+            var clinicaDSBDIContext = _context.ConsultaModel.Include(c => c.Animal).Include(c => c.Hospital).Include(c => c.Veterinario);
             return View(await clinicaDSBDIContext.ToListAsync());
         }
 
@@ -36,6 +36,7 @@ namespace ClinicaDSBDI.Controllers
 
             var consultaModel = await _context.ConsultaModel
                 .Include(c => c.Animal)
+                .Include(c => c.Hospital)
                 .Include(c => c.Veterinario)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (consultaModel == null)
@@ -50,6 +51,7 @@ namespace ClinicaDSBDI.Controllers
         public IActionResult Create()
         {
             ViewData["AnimalId"] = new SelectList(_context.AnimalModel, "Id", "Id");
+            ViewData["HospitalId"] = new SelectList(_context.HospitalModel, "Id", "Id");
             ViewData["VeterinarioId"] = new SelectList(_context.VeterinarioModel, "Id", "Id");
             return View();
         }
@@ -59,7 +61,7 @@ namespace ClinicaDSBDI.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,VeterinarioId,AnimalId,DataDaConsulta,HoraDaConsulta")] ConsultaModel consultaModel)
+        public async Task<IActionResult> Create([Bind("Id,HospitalId,VeterinarioId,AnimalId,DataDaConsulta,HoraDaConsulta")] ConsultaModel consultaModel)
         {
             if (ModelState.IsValid)
             {
@@ -68,6 +70,7 @@ namespace ClinicaDSBDI.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AnimalId"] = new SelectList(_context.AnimalModel, "Id", "Id", consultaModel.AnimalId);
+            ViewData["HospitalId"] = new SelectList(_context.HospitalModel, "Id", "Id", consultaModel.HospitalId);
             ViewData["VeterinarioId"] = new SelectList(_context.VeterinarioModel, "Id", "Id", consultaModel.VeterinarioId);
             return View(consultaModel);
         }
@@ -86,6 +89,7 @@ namespace ClinicaDSBDI.Controllers
                 return NotFound();
             }
             ViewData["AnimalId"] = new SelectList(_context.AnimalModel, "Id", "Id", consultaModel.AnimalId);
+            ViewData["HospitalId"] = new SelectList(_context.HospitalModel, "Id", "Id", consultaModel.HospitalId);
             ViewData["VeterinarioId"] = new SelectList(_context.VeterinarioModel, "Id", "Id", consultaModel.VeterinarioId);
             return View(consultaModel);
         }
@@ -95,7 +99,7 @@ namespace ClinicaDSBDI.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,VeterinarioId,AnimalId,DataDaConsulta,HoraDaConsulta")] ConsultaModel consultaModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,HospitalId,VeterinarioId,AnimalId,DataDaConsulta,HoraDaConsulta")] ConsultaModel consultaModel)
         {
             if (id != consultaModel.Id)
             {
@@ -123,6 +127,7 @@ namespace ClinicaDSBDI.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AnimalId"] = new SelectList(_context.AnimalModel, "Id", "Id", consultaModel.AnimalId);
+            ViewData["HospitalId"] = new SelectList(_context.HospitalModel, "Id", "Id", consultaModel.HospitalId);
             ViewData["VeterinarioId"] = new SelectList(_context.VeterinarioModel, "Id", "Id", consultaModel.VeterinarioId);
             return View(consultaModel);
         }
@@ -137,6 +142,7 @@ namespace ClinicaDSBDI.Controllers
 
             var consultaModel = await _context.ConsultaModel
                 .Include(c => c.Animal)
+                .Include(c => c.Hospital)
                 .Include(c => c.Veterinario)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (consultaModel == null)
