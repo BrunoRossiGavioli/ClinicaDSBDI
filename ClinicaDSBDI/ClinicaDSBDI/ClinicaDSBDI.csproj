@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201203224625_SkyfoldersDasEntidades.cs" />
+    <Compile Remove="Migrations\20201203224625_SkyfoldersDasEntidades.Designer.cs" />
+    <Compile Remove="Migrations\20201203224925_SkyfoldersDasEntidades.cs" />
+    <Compile Remove="Migrations\20201203224925_SkyfoldersDasEntidades.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">

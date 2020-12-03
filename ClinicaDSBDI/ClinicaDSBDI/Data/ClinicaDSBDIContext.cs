@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Clinica_DS_BDI_MVC.Models;
+using ClinicaDSBDI.Models;
 
 namespace ClinicaDSBDI.Data
 {
@@ -25,5 +26,9 @@ namespace ClinicaDSBDI.Data
         public DbSet<Clinica_DS_BDI_MVC.Models.EspecieModel> EspecieModel { get; set; }
 
         public DbSet<Clinica_DS_BDI_MVC.Models.AnimalModel> AnimalModel { get; set; }
+
+        public DbSet<ClinicaDSBDI.Models.HospitalModel> HospitalModel { get; set; }
+
+        public DbSet<ClinicaDSBDI.Models.VeterinarioModel> VeterinarioModel { get; set; }
     }
 }
