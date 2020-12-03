@@ -4,14 +4,16 @@ using ClinicaDSBDI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ClinicaDSBDI.Migrations
 {
     [DbContext(typeof(ClinicaDSBDIContext))]
-    partial class ClinicaDSBDIContextModelSnapshot : ModelSnapshot
+    [Migration("20201203231720_consultaSkyfolder")]
+    partial class consultaSkyfolder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
