@@ -22,7 +22,7 @@ namespace ClinicaDSBDI.Controllers
         // GET: Estado
         public async Task<IActionResult> Index()
         {
-            var clinicaDSBDIContext = _context.EstadoModel.Include(v => v.Pais);
+            var clinicaDSBDIContext = _context.EstadoModel.Include(e => e.Pais);
             return View(await clinicaDSBDIContext.ToListAsync());
         }
 
@@ -48,7 +48,7 @@ namespace ClinicaDSBDI.Controllers
         // GET: Estado/Create
         public IActionResult Create()
         {
-            ViewData["PaisId"] = new SelectList(_context.PaisModel.ToList().OrderBy(a => a.Nome), "Id", "Nome");
+            ViewData["PaisId"] = new SelectList(_context.PaisModel, "Id", "Nome");
             return View();
         }
 
@@ -66,7 +66,7 @@ namespace ClinicaDSBDI.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PaisId"] = new SelectList(_context.PaisModel.ToList().OrderBy(a => a.Nome), "Id", "Nome");
+            ViewData["PaisId"] = new SelectList(_context.PaisModel, "Id", "Nome", estadoModel.PaisId);
             return View(estadoModel);
         }
 
@@ -83,7 +83,7 @@ namespace ClinicaDSBDI.Controllers
             {
                 return NotFound();
             }
-            ViewData["PaisId"] = new SelectList(_context.PaisModel.ToList().OrderBy(a => a.Nome), "Id", "Nome");
+            ViewData["PaisId"] = new SelectList(_context.PaisModel, "Id", "Nome", estadoModel.PaisId);
             return View(estadoModel);
         }
 
@@ -120,7 +120,7 @@ namespace ClinicaDSBDI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PaisId"] = new SelectList(_context.PaisModel.ToList().OrderBy(a => a.Nome), "Id", "Nome");
+            ViewData["PaisId"] = new SelectList(_context.PaisModel, "Id", "Nome", estadoModel.PaisId);
             return View(estadoModel);
         }
 

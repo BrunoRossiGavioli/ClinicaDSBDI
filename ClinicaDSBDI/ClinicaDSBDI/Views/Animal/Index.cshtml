@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Animal</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -14,12 +14,6 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Proprietario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Especie)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Peso)
@@ -33,6 +27,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Pedigree)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proprietario)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -43,22 +43,22 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Proprietario.Nome)
+                @Html.DisplayFor(modelItem => item.Peso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Altura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comprimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pedigree)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Especie.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Peso) KG
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Altura) M
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comprimento) CM
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pedigree)
+                @Html.DisplayFor(modelItem => item.Proprietario.Nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

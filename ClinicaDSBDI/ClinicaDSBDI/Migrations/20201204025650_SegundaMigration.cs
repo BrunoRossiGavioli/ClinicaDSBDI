@@ -2,7 +2,7 @@
 
 namespace ClinicaDSBDI.Migrations
 {
-    public partial class primeira : Migration
+    public partial class SegundaMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,19 +17,6 @@ namespace ClinicaDSBDI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Especies", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Pais",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(maxLength: 60, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Pais", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -73,6 +60,26 @@ namespace ClinicaDSBDI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Hospital",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(maxLength: 50, nullable: true),
+                    CidadeId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Hospital", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Hospital_Cidade_CidadeId",
+                        column: x => x.CidadeId,
+                        principalTable: "Cidade",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Proprietario",
                 columns: table => new
                 {
@@ -96,6 +103,27 @@ namespace ClinicaDSBDI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Veterinario",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    HospitalId = table.Column<int>(nullable: false),
+                    Nome = table.Column<string>(maxLength: 50, nullable: true),
+                    CRV = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Veterinario", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Veterinario_Hospital_HospitalId",
+                        column: x => x.HospitalId,
+                        principalTable: "Hospital",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Animal",
                 columns: table => new
                 {
@@ -104,9 +132,9 @@ namespace ClinicaDSBDI.Migrations
                     Nome = table.Column<string>(maxLength: 50, nullable: true),
                     ProprietarioId = table.Column<int>(nullable: false),
                     EspecieId = table.Column<int>(nullable: false),
-                    Peso = table.Column<decimal>(type: "decimal(3,2)", nullable: false),
-                    Altura = table.Column<decimal>(type: "decimal(3,2)", nullable: false),
-                    Comprimento = table.Column<decimal>(type: "decimal(3,2)", nullable: false),
+                    Peso = table.Column<decimal>(nullable: false),
+                    Altura = table.Column<decimal>(nullable: false),
+                    Comprimento = table.Column<decimal>(nullable: false),
                     Pedigree = table.Column<string>(maxLength: 22, nullable: true)
                 },
                 constraints: table =>
@@ -147,9 +175,19 @@ namespace ClinicaDSBDI.Migrations
                 column: "PaisId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Hospital_CidadeId",
+                table: "Hospital",
+                column: "CidadeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Proprietario_CidadeId",
                 table: "Proprietario",
                 column: "CidadeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Veterinario_HospitalId",
+                table: "Veterinario",
+                column: "HospitalId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -158,19 +196,22 @@ namespace ClinicaDSBDI.Migrations
                 name: "Animal");
 
             migrationBuilder.DropTable(
+                name: "Veterinario");
+
+            migrationBuilder.DropTable(
                 name: "Especies");
 
             migrationBuilder.DropTable(
                 name: "Proprietario");
 
             migrationBuilder.DropTable(
+                name: "Hospital");
+
+            migrationBuilder.DropTable(
                 name: "Cidade");
 
             migrationBuilder.DropTable(
                 name: "Estado");
-
-            migrationBuilder.DropTable(
-                name: "Pais");
         }
     }
 }

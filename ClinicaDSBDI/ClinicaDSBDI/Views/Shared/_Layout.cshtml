@@ -3,17 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Clinica_DS_BDI_MVC</title>
+    <title>@ViewData["Title"] - Clinica_SOS</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <script src="~/lib/jQuery-Mask-Plugin-master/src/jquery.mask.js" type="text/javascript" asp-append-version="true"></script>
-
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Clinica_DS_BDI_MVC</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Clinica_SOS</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,7 +22,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <!--DROPDOWN START-->
-                        <li class="nav-item dropdown active">
+                        <li class="nav-item dropdown active show">
                             <div role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <a class="dropdown-toggle text-dark nav-link" asp-area="">Regioes</a>
                             </div>
@@ -43,6 +41,8 @@
                             <div class="dropdown-menu">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Proprietario" asp-action="Index">Proprietario</a>
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Animal" asp-action="Index">Animal</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Hospital" asp-action="Index">Hospital</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Veterinario" asp-action="Index">Veterinario</a>
                             </div>
                         </li>
                         <!--DROPDOWN END-->
@@ -56,12 +56,6 @@
                             </div>
                         </li>
                         <!--DROPDOWN END-->
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Hospital" asp-action="Index">Hospital</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Veterinario" asp-action="Index">Veterinario</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -75,7 +69,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - Clinica_DS_BDI_MVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - Clinica_SOS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -84,5 +78,3 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

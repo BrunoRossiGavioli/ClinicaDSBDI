@@ -22,10 +22,13 @@ namespace Clinica_DS_BDI_MVC.Models
         [ForeignKey("Especie")]
         public int EspecieId { get; set; }
         
+        [Column(TypeName = "decimal(6,2)")]
         public decimal Peso { get; set; }
-        
+
+        [Column(TypeName = "decimal(6,2)")]
         public decimal Altura { get; set; }
-        
+
+        [Column(TypeName = "decimal(6,2)")]
         public decimal Comprimento { get; set; }
         
         [MaxLength(22, ErrorMessage = "O pedigree tem mais de {0} caracteres")]

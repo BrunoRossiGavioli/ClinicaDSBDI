@@ -62,7 +62,6 @@ namespace ClinicaDSBDI.Controllers
             if (ModelState.IsValid)
             {
                 proprietarioModel.Nome = proprietarioModel.Nome.ToUpper();
-                proprietarioModel.Rua = proprietarioModel.Rua.ToUpper();
                 _context.Add(proprietarioModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -105,7 +104,6 @@ namespace ClinicaDSBDI.Controllers
                 try
                 {
                     proprietarioModel.Nome = proprietarioModel.Nome.ToUpper();
-                    proprietarioModel.Rua = proprietarioModel.Rua.ToUpper();
                     _context.Update(proprietarioModel);
                     await _context.SaveChangesAsync();
                 }

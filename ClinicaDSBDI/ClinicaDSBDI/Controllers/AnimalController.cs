@@ -64,6 +64,9 @@ namespace ClinicaDSBDI.Controllers
             if (ModelState.IsValid)
             {
                 animalModel.Nome = animalModel.Nome.ToUpper();
+                //Convert.ToDecimal(animalModel.Altura);
+                //Convert.ToDecimal(animalModel.Comprimento);
+                //Convert.ToDecimal(animalModel.Peso);
                 _context.Add(animalModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

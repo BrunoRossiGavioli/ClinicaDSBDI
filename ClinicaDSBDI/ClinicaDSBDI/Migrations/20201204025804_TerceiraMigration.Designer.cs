@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClinicaDSBDI.Migrations
 {
     [DbContext(typeof(ClinicaDSBDIContext))]
-    [Migration("20201201185408_RemovendoDecimal")]
-    partial class RemovendoDecimal
+    [Migration("20201204025804_TerceiraMigration")]
+    partial class TerceiraMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,51 @@ namespace ClinicaDSBDI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ClinicaDSBDI.Models.HospitalModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CidadeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CidadeId");
+
+                    b.ToTable("Hospital");
+                });
+
+            modelBuilder.Entity("ClinicaDSBDI.Models.VeterinarioModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CRV")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HospitalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HospitalId");
+
+                    b.ToTable("Veterinario");
+                });
+
             modelBuilder.Entity("Clinica_DS_BDI_MVC.Models.AnimalModel", b =>
                 {
                     b.Property<int>("Id")
@@ -28,10 +73,10 @@ namespace ClinicaDSBDI.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Altura")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(3,2)");
 
                     b.Property<decimal>("Comprimento")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(3,2)");
 
                     b.Property<int>("EspecieId")
                         .HasColumnType("int");
@@ -45,7 +90,7 @@ namespace ClinicaDSBDI.Migrations
                         .HasMaxLength(22);
 
                     b.Property<decimal>("Peso")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(3,2)");
 
                     b.Property<int>("ProprietarioId")
                         .HasColumnType("int");
@@ -164,6 +209,24 @@ namespace ClinicaDSBDI.Migrations
                     b.HasIndex("CidadeId");
 
                     b.ToTable("Proprietario");
+                });
+
+            modelBuilder.Entity("ClinicaDSBDI.Models.HospitalModel", b =>
+                {
+                    b.HasOne("Clinica_DS_BDI_MVC.Models.CidadeModel", "Cidade")
+                        .WithMany()
+                        .HasForeignKey("CidadeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ClinicaDSBDI.Models.VeterinarioModel", b =>
+                {
+                    b.HasOne("ClinicaDSBDI.Models.HospitalModel", "Hospital")
+                        .WithMany()
+                        .HasForeignKey("HospitalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Clinica_DS_BDI_MVC.Models.AnimalModel", b =>

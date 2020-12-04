@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicaDSBDI", "ClinicaDSBDI\ClinicaDSBDI.csproj", "{52F1E9FF-87D4-4DEB-B5EC-6762A374DF91}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicaDSBDI", "ClinicaDSBDI\ClinicaDSBDI.csproj", "{46F94D55-EEE2-4028-928C-E22932534608}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{52F1E9FF-87D4-4DEB-B5EC-6762A374DF91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52F1E9FF-87D4-4DEB-B5EC-6762A374DF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52F1E9FF-87D4-4DEB-B5EC-6762A374DF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52F1E9FF-87D4-4DEB-B5EC-6762A374DF91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46F94D55-EEE2-4028-928C-E22932534608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46F94D55-EEE2-4028-928C-E22932534608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46F94D55-EEE2-4028-928C-E22932534608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46F94D55-EEE2-4028-928C-E22932534608}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {16EFB413-066D-42EB-94DD-18460C2238EC}
+		SolutionGuid = {407BA874-11B1-48B5-9001-652F96D21704}
 	EndGlobalSection
 EndGlobal
