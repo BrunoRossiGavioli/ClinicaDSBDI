@@ -30,5 +30,7 @@ namespace ClinicaDSBDI.Data
         public DbSet<ClinicaDSBDI.Models.HospitalModel> HospitalModel { get; set; }
 
         public DbSet<ClinicaDSBDI.Models.VeterinarioModel> VeterinarioModel { get; set; }
+
+        public DbSet<ClinicaDSBDI.Models.ConsultaModel> ConsultaModel { get; set; }
     }
 }
